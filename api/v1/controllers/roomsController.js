@@ -24,6 +24,7 @@ export const createRoom = async (req, res, next) => {
       body: { userID: otherUserID },
     } = req;
     const room = await Room.find({
+      console.log(room)
       $and: [{ members: { $in: userID } }, { members: { $in: otherUserID } }],
     });
     if (room) {
